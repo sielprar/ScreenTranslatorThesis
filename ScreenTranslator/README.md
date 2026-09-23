@@ -58,6 +58,3 @@ Fonts, the full Wikipedia corpus and generated data are not in git:
 `scripts/download_fonts.py`, `scripts/download_ru_wiki.py` and
 `scripts/generate_synthetic.py` recreate them. Tests: `pytest`.
 
-## Thesis
-
-See `paper/README.md` for building the Word document.
