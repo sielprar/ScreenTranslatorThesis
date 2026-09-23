@@ -1,16 +1,6 @@
-# Ablation study (2026-09-23)
+# Ablation study 
 
-One component switched off at a time through debug-only `EvalFlags`
-(build `7bde7ad`; with all flags on it runs the `eval-v2` code). Quality:
-fresh captures in `captures/`, scored against the unchanged source units in
-`units.csv` (baseline = `study/evaluation/units.csv`, whose eval-v2 outputs
-matched the same-session all-on captures pixel for pixel on both menus and
-differed only in status/badge pixels elsewhere). Latency: 10 first-view
-passes per configuration (`latency/`), all-on measured in the same session.
-`browser_es` latency rows force the OCR path (`a11y=0`) because Chrome
-exposes the article once its accessibility tree is built; its quality
-captures took the OCR path on their own. Five runs affected by a flag-order
-bug are kept in `runs.csv` marked INVALID and were re-captured.
+
 
 | Component off | Case | Quality: all on → off | Latency p50 (p95), ms: all on → off |
 |---|---|---|---|
@@ -25,23 +15,4 @@ bug are kept in `runs.csv` marked INVALID and were re-captured.
 | Language focus | menu_ru | 2/102 usable · 22 correct · 60 detected · 0 spurious → **1/102 usable · 11 correct · 69 detected · 0 spurious** | 4544 (6925) → 2580 (3056) |
 | Language focus | browser_ru | 7/20 usable · 9 correct · 17 detected · 6 spurious → **7/20 usable · 9 correct · 17 detected · 6 spurious** | 603 (746) → 568 (894) |
 
-**Readings.**
-- *Accessibility fast path*: 3× faster (Settings 292 → 917 ms, Wikipedia
-  603 → 1 591 ms without it). Quality depends on the app: on Settings it is
-  about equal (12 vs 11 usable; each path makes different NMT word errors),
-  but on Wikipedia the OCR path is better (15 vs 7 usable, 0 vs 6 spurious
-  icon cards) because Chrome's accessibility nodes split lines into link
-  fragments and expose icon labels.
-- *Multi-scale OCR*: no quality change on the Latin pages; on the Russian
-  menu it adds detections (43 → 60) but not correct lines (24 → 22), for
-  about 1 s more per pass (3 494 → 4 544 ms).
-- *Tesseract fallback*: essential for Cyrillic images (Russian menu 22 → 0
-  correct lines without it) and irrelevant to Latin quality, where it only
-  costs time (French menu 726 → 1 453 ms) and occasionally adds a wrong
-  card ("Hair Wari Ya.").
-- *Language focus*: doubles correct lines on the Russian menu (11 → 22) at
-  a latency cost (2 580 → 4 544 ms); no effect on the accessibility path.
 
-Single emulator runs per quality configuration; menu outputs are
-deterministic (repeat captures were pixel-identical), but timings vary
-between sessions by roughly 10–30 % (compare `../latency/`).
