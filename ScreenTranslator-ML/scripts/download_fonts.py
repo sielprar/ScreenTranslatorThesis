@@ -1,8 +1,3 @@
-"""Download all fonts listed in data/corpora/fonts_list.txt into data/fonts/.
-
-Skips already-downloaded files. Verifies each font has Cyrillic coverage by
-checking that the codepoints for 'А' and 'я' are present in the font's cmap.
-"""
 from __future__ import annotations
 import sys
 from pathlib import Path
