@@ -60,14 +60,6 @@ venv/
 env/
 *.egg-info/
 
-# Word temp files
-~$*.docx
-~$*.doc
-
-# Generated thesis output
-paper/*.docx
-!paper/reference.docx
-paper/*.pdf
 
 # Tesseract traineddata — downloaded via scripts/download_tessdata.sh
 android/app/src/main/assets/tessdata/*.traineddata
@@ -78,8 +70,6 @@ android/app/src/main/assets/tessdata/*.traineddata
 *.swo
 *~
 
-# Claude Code local machine config
-.claude/settings.local.json
 
 # Logs / benchmark output
 results/
