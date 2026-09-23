@@ -1,11 +1,3 @@
-"""Capture emulator/device screenshots for the real-eval corpus.
-
-Usage:
-    python scripts/capture_emulator_screenshots.py --category settings --out data/real_screenshots
-
-Requires `adb` on PATH. The user should have a connected emulator or device
-with the target app open before running.
-"""
 from __future__ import annotations
 import argparse
 import subprocess
