@@ -1,9 +1,3 @@
-"""Bulk generate synthetic recognizer crops OR detector pages.
-
-Usage:
-    python scripts/generate_synthetic.py --mode recognizer --out data/synthetic/recognizer --n 1000000
-    python scripts/generate_synthetic.py --mode detector   --out data/synthetic/detector   --n 200000
-"""
 from __future__ import annotations
 import argparse
 from pathlib import Path
