@@ -1,23 +1,3 @@
-"""Fetch the current export from Label Studio via its SDK.
-
-Usage:
-    LABEL_STUDIO_URL=http://localhost:8080 \\
-    LABEL_STUDIO_API_KEY=<token from Account & Settings> \\
-    python scripts/labelstudio_export.py --project-id 1 --out data/real_screenshots/labels.json
-
-SDK note: the plan sketch for this script guessed at a
-`client.projects.exports.create_snapshot(...)` + manual `.download(...)` call.
-The installed `label-studio-sdk` (2.1.1) has no such method — its exports
-client instead exposes a high-level `as_json(project_id, ...)` helper that
-does the right thing for either server edition: Community edition exports
-synchronously (one `download_sync` call), Enterprise edition requires
-create-snapshot -> poll -> convert -> download, and `as_json` handles both
-transparently, returning already-parsed JSON. We use that helper instead of
-reimplementing the create/poll/download dance by hand. Verified by reading
-`label_studio_sdk/projects/exports/client_ext.py` and `raw_client.py` in the
-installed package. If a future SDK version renames this again, re-check with:
-    python -c "import label_studio_sdk; help(label_studio_sdk.LabelStudio)"
-"""
 from __future__ import annotations
 import argparse
 import json
