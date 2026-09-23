@@ -1,13 +1,3 @@
-"""Download the Russian Wikipedia snapshot via HuggingFace Datasets, filter
-to short OCR-realistic lines (5-80 chars, all characters in our recognizer's
-Cyrillic vocab, no wiki markup), save to data/corpora/ru_wiki_full.txt.
-Sample of 5000 lines committed to ru_wiki_sample.txt for repo browsing
-without pulling the full corpus.
-
-The vocab-membership check is critical: without it, ~28% of raw Wikipedia
-lines contain Latin loanwords, non-breaking spaces, em-dashes, etc. that
-would KeyError inside Vocab.encode() at training time (Task 5's dataloader).
-"""
 from __future__ import annotations
 import re
 import sys
