@@ -1,0 +1,86 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# JetBrains IDEs (PyCharm / Android Studio user files)
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Android / Gradle
+android/local.properties
+android/**/build/
+android/.gradle/
+android/captures/
+android/**/*.apk
+android/**/*.aab
+android/**/release/
+android/keystore/
+android/**/google-services.json
+android/.cxx/
+
+# Xcode / iOS
+ios/**/build/
+ios/**/DerivedData/
+ios/**/xcuserdata/
+ios/**/*.xcworkspace/xcuserdata/
+ios/**/Pods/
+ios/**/*.hmap
+ios/**/*.ipa
+ios/**/*.dSYM.zip
+ios/**/*.dSYM
+
+# CocoaPods
+ios/**/Podfile.lock
+
+# Swift Package Manager
+.swiftpm/
+Package.resolved
+
+# Python (for benchmark scripts, model conversion, etc.)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Word temp files
+~$*.docx
+~$*.doc
+
+# Generated thesis output
+paper/*.docx
+!paper/reference.docx
+paper/*.pdf
+
+# Tesseract traineddata — downloaded via scripts/download_tessdata.sh
+android/app/src/main/assets/tessdata/*.traineddata
+
+# Editor
+.vscode/
+*.swp
+*.swo
+*~
+
+# Claude Code local machine config
+.claude/settings.local.json
+
+# Logs / benchmark output
+results/
+*.log
